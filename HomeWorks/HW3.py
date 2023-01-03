@@ -7,12 +7,12 @@
 # форматирования через разделитель "<<<>>>", вывод сделать в файл.
 # sent = input('Enter a two-letter sentence: ').split()
 # print(sent)
-sourceFile=open('python.txt','w')
+sourceFile = open('python.txt', 'w')
 sent = input('Enter a two-letter sentence: ').split()
 word_1 = sent[0]
 word_2 = sent[1]
 sent_1 = ('! %s, %s ?' % (word_2.upper(), word_1.capitalize()))
 sent_2 = ('! {0}, {1} ?'.format(sent[1].upper(), sent[0].capitalize()))
 sent_3 = (f'! {word_2.upper()}, {word_1.capitalize()} ?')
-print(sent,sent_1,sent_2,sent_3,sep=' <<<>>> ')
-print(sent,sent_1,sent_2,sent_3,sep=' <<<>>> ',file=sourceFile)
+print(sent, sent_1, sent_2, sent_3, sep=' <<<>>> ')
+print(sent, sent_1, sent_2, sent_3, sep=' <<<>>> ', file=sourceFile)
