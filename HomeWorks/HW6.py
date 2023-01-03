@@ -4,7 +4,7 @@
 n = 1
 input_n = input('Input natural number: ')
 total = 0
-for n in range(n, int(input_n) + 1):
+for n in range(1, int(input_n) + 1):
     if n % 3 == 0:
         print(n, " is skipped")
         continue
