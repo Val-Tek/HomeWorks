@@ -26,6 +26,6 @@ b1 = tuple(b1)
 b2 = tuple(b2)
 print(id(b1))
 print(id(b2))
-b1 = b2
+
 print(b1 == b2)
 print(b1 is b2)
