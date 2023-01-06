@@ -13,13 +13,7 @@ def func_count(list_num):
             counts[num] = 1
     return counts
 
-def func_count2(lst):
-    counts = {}
-    for num in lst:
-        if num not in counts:
-            counts[num]=len([x for x in lst if x==num])
-    return counts
 
 print(func_count(list_num))
-print(func_count2(list_num))
+
 
