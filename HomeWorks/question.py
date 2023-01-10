@@ -4,7 +4,7 @@ def my_decor(a_func):
         a_func()
         print("я- код который выполняется после функци")
 
-    return wrapper()
+    return wrapper
 
 
 @my_decor
