@@ -1,10 +1,13 @@
 # Написать декоратор к 2-м любым функциям, который бы считал и выводил время их выполнения.
 # Подсказка:
-# from datetime import datetime
-# time = datetime.now()
+from datetime import datetime
+import time
+ start_time = datetime.now()
+ def time_dekor(t_function):
+    def wrapper():
+        =(datetime.datetime.now()-start_time)
 
 list_num = [4, 3, 6, 2, 6, 4, 1, 9, 11, 45, 29, 29, 5, 27, 1, 4, 3, 7, 2, 4, 1, 8, 5, 3, 7, 45, 3]
-
 
 def func_count(list_num):
     counts = {}
