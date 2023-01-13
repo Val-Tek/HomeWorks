@@ -21,6 +21,9 @@ def lera_func(inp):
 
     if not clean.isdigit():
         return "You entered invalid input: " + inp
+    minus=inp.count('-')
+    if minus > 1:
+        return "You entered invalid input: " + inp
     indot = inp
     if "," in indot:
         indot = indot.replace(",", ".")
@@ -34,7 +37,7 @@ def lera_func(inp):
         num = int(indot)
         type_num = "integer"
     if num == 0:
-        return "You entered Zero: "+ inp
+        return "You entered Zero: " + inp
     sign = "?"
     if num > 0:
         sign = "positive"
