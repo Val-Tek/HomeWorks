@@ -47,7 +47,7 @@ def lera_func(inp):
 
 
 while True:
-    inp = input("Give us a number : ")
+    inp = input("Give us a number or exit: ")
     if inp.lower() in ["выход", "exit", "quit", "e", "q"]:
         break
     print(lera_func(inp))
