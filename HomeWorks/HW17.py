@@ -3,11 +3,11 @@
 # Затем результат преобразовать снова в байтовый, только уже в кодировке ‘Latin1’.
 # И на конец результат снова декодировать в строку.
 # (результаты всех преобразований выводить на экран).
-dano_bytes = b'r\xc3\xa9sum\xc3\xa9'
-print(dano_bytes)
-dano_str = dano_bytes.decode()
-print(dano_str)
-dano_latin1 = dano_str.encode("Latin1")
-print(dano_latin1)
-dano_str_1 = dano_latin1.decode('Latin1')
-print(dano_str_1)
+have_bytes = b'r\xc3\xa9sum\xc3\xa9'
+print(have_bytes)
+have_str = have_bytes.decode()
+print(have_str)
+get_latin1 = have_str.encode("Latin1")
+print(get_latin1)
+get_str = get_latin1.decode('Latin1')
+print(get_str)
