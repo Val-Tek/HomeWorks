@@ -12,7 +12,7 @@ with open('HW18.json', 'r') as file:
         fields.append(name_of_fields)
         for key, values in dictionary.items():
             values.insert(0, key)
-            values.append(",,")
+            values.append('')
             fields.append(values)
 with open('HW19.csv', mode='w', encoding='utf-8') as data_list:
     w_file = csv.writer(data_list)
