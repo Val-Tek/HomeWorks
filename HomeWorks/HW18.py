@@ -13,3 +13,10 @@ dictionary = {
 }
 with open('HW18.json', 'w') as file:
     json.dump(dictionary, file)
+
+
+
+
+
+
+
