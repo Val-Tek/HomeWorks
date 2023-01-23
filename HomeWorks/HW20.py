@@ -13,9 +13,12 @@ with open('HW19.csv', mode="r") as file_csv:
     for index, row in enumerate(read_file):
         del row[2]
         if index > 0:
+            row.insert(0, "Person-{0}".format(index))
             if index % 3 != 0:
                 mob_code = mob_codes[random.randint(0, 2)]
-                row[2] = "+38" + mob_code + str(random.randint(0, 999999)).zfill(6)
+                row[3] = "+38" + mob_code + str(random.randint(0, 999999)).zfill(6)
+        else:
+            row.insert(0, "Name of fields")
         fields.append(row)
         count += 1
     print(fields)
