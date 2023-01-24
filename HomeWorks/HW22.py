@@ -28,6 +28,7 @@ class Truck(Auto):
         self.max_load = max_load
     def move(self):
         print("attention")
+        super().move()
     def load(self):
         sleep(1)
         print("load")
@@ -37,7 +38,9 @@ class Car(Auto):
         super().__init__(brand, age, mark, color, weight)
         self.max_speed = max_speed
     def move(self):
+        super().move()
         print("Max speed is " + str(self.max_speed))
+
 
 
 auto1 = Car('BMW', 3, "electro", 250)
