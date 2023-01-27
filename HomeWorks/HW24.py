@@ -16,7 +16,7 @@ class HW_string(str):
             return self
 
 
-a = HW_string(777736454783)
-b = HW_string(7)
+a = HW_string('tdgeheudjmkkk')
+b = HW_string('k')
 print(type(a - b))
 print(a - b)
