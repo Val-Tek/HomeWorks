@@ -11,12 +11,12 @@ class HW_string(str):
         self_str = str(self)
         other_str = str(other)
         if other_str in self_str:
-            return HW_string(self_str.replace(other_str, ""))
+            return HW_string(self_str.replace(other_str, "",1))
         else:
             return self
 
 
-a = HW_string('yddde')
-b = HW_string('z')
-print(type(a + b))
-print(a + b)
+a = HW_string(777736454783)
+b = HW_string(7)
+print(type(a - b))
+print(a - b)
