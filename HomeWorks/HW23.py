@@ -33,34 +33,27 @@ class Circle(Point):
         return self.radius == other.radius
 
     def __add__(self, other):
-        x = self.x + other.x
-        y = self.y + other.y
+        x1 = self.x + other.x
+        y1 = self.y + other.y
         radius = self.radius + other.radius
-        return Circle(radius, x, y)
+        return Circle(radius, x1, y1)
 
     def __str__(self):
         return f'(radius={self.radius}, ' + super().__str__()[1:]
 
     def __sub__(self, other):
-
+        x = abs(self.x - other.x)
+        y = abs(self.y - other.y)
         if self.radius == other.radius:
-            x = self.x - other.x
-            y = self.y - other.y
             return Point(x, y)
         else:
-            x = self.area()
-            y = other.area()
-            return x - y
-
-    def area(self):
-        return math.pi * (self.radius ** 2)
+            radius_new = abs(self.radius - other.radius)
+            return radius_new, x, y
 
 
-a = Circle(1, 2, 3)
-b = Circle(1, 5, 7)
+a = Circle(5, 2, 3)
+b = Circle(5, 5, 7)
 c = a - b
 print(a)
 print(b)
-print(a.area())
-print(b.area())
 print(c)
