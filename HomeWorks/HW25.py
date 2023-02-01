@@ -5,10 +5,10 @@
 class My_vector():
     MIN_COORD = 0
     MAX_COORD = 100
-
+    ADD = 2
     @classmethod
-    def positive(cls, arg):
-        return abs(arg)
+    def positive2(cls, arg):
+        return abs(arg) + cls.ADD
 
     @classmethod
     def validate(cls, arg):
@@ -23,8 +23,8 @@ class My_vector():
         return abs(x - y)
 
     def __init__(self, x, y):
-        x = self.positive(x)
-        y = self.positive(y)
+        x = self.positive2(x)
+        y = self.positive2(y)
         if self.validate(x) and self.validate(y):
             self.x = x
             self.y = y
