@@ -6,6 +6,7 @@ class My_vector():
     MIN_COORD = 0
     MAX_COORD = 100
     ADD = 2
+
     @classmethod
     def positive2(cls, arg):
         return abs(arg) + cls.ADD
