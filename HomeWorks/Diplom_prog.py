@@ -34,7 +34,6 @@ class Person(object):
 
 def main():
     # file selection loop
-    sleep(1)
     print("Welcome to the data saver programme!")
     sleep(1)
     persondata = []
@@ -60,8 +59,9 @@ def main():
     # file view-editing loop
     while True:
         sleep(2)
-        print("You have available commands: "
-              "\n to view content - 'V' \n to enter new data -'E'\n to search in data - 'S' \n to quit - 'Q'")
+        print("You have available commands: ")
+        sleep(1)
+        print(" to view content - 'V' \n to enter new data -'E'\n to search in data - 'S' \n to quit - 'Q'")
         sleep(2)
         cmd = input("Pleas, enter one of the commands- V,E,S,Q: ")
         # cmd -> action
@@ -141,13 +141,24 @@ def enter_Record():
     first_name = input("first_name: ")
     middle_name = input("middle_name: ")
     last_name = input("last_name: ")
-    date_of_birth = datetime.strptime(input("date_of_birth dd.mm.yyyy: "), "%d.%m.%Y")
-    datestr = input("date_of_death dd.mm.yyyy: ")
-    if datestr == "":
-        date_of_death = None
-    else:
-        date_of_death = datetime.strptime(datestr, "%d.%m.%Y")
-    gender = input("gender")
+    gender = input("gender: ")
+    while True:
+        strinput = input("Enter date of birth: ")
+        try:
+            date_of_birth = datetime.strptime(strinput, "%d.%m.%Y")
+            break
+        except ValueError:
+            print("Format not valid try again dd.mm.yyyy ")
+    while True:
+        strinput = input("Enter date of death: ")
+        if strinput == "":
+            date_of_death = None
+            break
+        try:
+            date_of_death = datetime.strptime(strinput, "%d.%m.%Y")
+            break
+        except ValueError:
+            print("Format not valid try again dd.mm.yyyy ")
     p = Person(first_name=first_name, date_of_birth=date_of_birth, gender=gender, middle_name=middle_name,
                last_name=last_name, date_of_death=date_of_death)
     return p
