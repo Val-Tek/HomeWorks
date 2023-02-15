@@ -4,7 +4,7 @@ from time import sleep
 
 
 class Person(object):
-    def __init__(self, first_name, date_of_birth, gender, middle_name="", last_name="", date_of_death=None):
+    def __init__(self, first_name, date_of_birth, gender, middle_name=None, last_name=None, date_of_death=None):
         self.first_name = first_name
         self.middle_name = middle_name
         self.last_name = last_name
@@ -75,11 +75,11 @@ def main():
                 print(p)
         elif cmd in ["Q", "q"]:
             q_cmd = input("do you want to save the changes? enter: Y (yes) or N (no): ")
-            if q_cmd in ("Y", "y"):
+            if q_cmd in ["Y", "y"]:
                 save_file(file_name, persondata)
                 print(f"File {file_name} saved  successfully :)")
                 break
-            if q_cmd in ("N", "n"):
+            if q_cmd in ["N", "n"]:
                 print("Thank you for using my programme!")
                 break
         else:
