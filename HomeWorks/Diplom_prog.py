@@ -58,7 +58,8 @@ def main():
 
     # file view-editing loop
     while True:
-        sleep(2)
+        print("*"*50)
+        sleep(1)
         print("You have available commands: ")
         sleep(1)
         print(" to view content - 'V' \n to enter new data -'E'\n to search in data - 'S' \n to quit - 'Q'")
