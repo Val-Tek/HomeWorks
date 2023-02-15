@@ -42,7 +42,7 @@ def main():
         s = input("Enter 'N' to create a new file) or (enter 'L' to load existing file) or (enter 'Q' to quit) : ")
         if s in ["Q", "q"]:
             print("Thank you for using my programme!")
-            return  # exit from program
+            return
         if s in ["N", "n"]:
             file_name = input("Enter a name for new file: ")
             break
@@ -64,7 +64,6 @@ def main():
         print(" to view content - 'V' \n to enter new data -'E'\n to search in data - 'S' \n to quit - 'Q'")
         sleep(2)
         cmd = input("Pleas, enter one of the commands- V,E,S,Q: ")
-        # cmd -> action
         if cmd in ["V", "v"]:
             view_data(persondata)
         elif cmd in ["E", "e"]:
