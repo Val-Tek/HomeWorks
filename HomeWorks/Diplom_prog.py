@@ -1,7 +1,9 @@
-import openpyxl
 from datetime import datetime
 from time import sleep
-import os, fnmatch
+
+import fnmatch
+import openpyxl
+import os
 
 
 class Person(object):
@@ -76,7 +78,7 @@ def main():
         if cmd in ["V", "v"]:
             view_data(persondata)
         elif cmd in ["E", "e"]:
-            new_person = enter_Record()
+            new_person = enter_record()
             persondata.append(new_person)
         elif cmd in ["S", "s"]:
             result = search(persondata)
@@ -97,13 +99,13 @@ def main():
 
 
 def files_names():
-    files_names = []
-    listOfFiles = os.listdir('.')
+    files_names_list = []
+    all_files = os.listdir('.')
     pattern = "*.xlsx"
-    for file in listOfFiles:
+    for file in all_files:
         if fnmatch.fnmatch(file, pattern):
-            files_names.append(file)
-    return files_names
+            files_names_list.append(file)
+    return files_names_list
 
 
 def load_file(file_name):
@@ -155,25 +157,25 @@ def view_data(data):
         print(i)
 
 
-def enter_Record():
+def enter_record():
     first_name = input("first_name: ")
     middle_name = input("middle_name: ")
     last_name = input("last_name: ")
     gender = input("gender: ")
     while True:
-        strinput = input("Enter date of birth dd.mm.yyyy: ")
+        str_input = input("Enter date of birth dd.mm.yyyy: ")
         try:
-            date_of_birth = datetime.strptime(strinput, "%d.%m.%Y")
+            date_of_birth = datetime.strptime(str_input, "%d.%m.%Y")
             break
         except ValueError:
             print("Format not valid try again dd.mm.yyyy ")
     while True:
-        strinput = input("Enter date of death dd.mm.yyyy: ")
-        if strinput == "":
+        str_input = input("Enter date of death dd.mm.yyyy: ")
+        if str_input == "":
             date_of_death = None
             break
         try:
-            date_of_death = datetime.strptime(strinput, "%d.%m.%Y")
+            date_of_death = datetime.strptime(str_input, "%d.%m.%Y")
             break
         except ValueError:
             print("Format not valid try again dd.mm.yyyy ")
@@ -188,8 +190,8 @@ def search(data):
     for person in data:
         if search_data.lower() in person.full_name().lower():
             result.append(person)
-        else:
-            result = ["Request not found."]
+    if len(result)==0:
+        result = ["Request not found."]
     return result
 
 
