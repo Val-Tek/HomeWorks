@@ -1,6 +1,7 @@
 import openpyxl
 from datetime import datetime
 from time import sleep
+import os, fnmatch
 
 
 class Person(object):
@@ -55,8 +56,7 @@ def main():
             file_name = input("Enter a name for new file: ")
             break
         if s in ["L", "l"]:
-            # files_names={files_names}
-            file_name = input(f'Enter the file_name from project (): ')
+            file_name = input(f'Enter the file_name from project {files_names()}: ')
             persondata = load_file(file_name)
             print(f"{len(persondata)} records loaded.")
             break
@@ -94,6 +94,16 @@ def main():
         else:
             print("Command not recognized :(")
             # continue view-editing  loop
+
+
+def files_names():
+    files_names = []
+    listOfFiles = os.listdir('.')
+    pattern = "*.xlsx"
+    for file in listOfFiles:
+        if fnmatch.fnmatch(file, pattern):
+            files_names.append(file)
+    return files_names
 
 
 def load_file(file_name):
