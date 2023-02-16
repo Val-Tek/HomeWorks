@@ -12,24 +12,32 @@ class Person(object):
         self.gender = gender
         self.date_of_death = date_of_death
 
-    def full_name(self):
-        full_name = f"{self.first_name}  {self.middle_name}  {self.last_name}"
-        return full_name
-
-    def age(self):
-        if self.date_of_death is None:
-            tdelta = datetime.now() - self.date_of_birth
-            return tdelta.days // 365
-        else:
-            tdelta = self.date_of_death - self.date_of_birth
-            return tdelta.days // 365
-
     def __str__(self):
         if self.date_of_death is None:
             return f"{self.full_name()}, {self.gender}, {self.age()} years old, was born {self.date_of_birth} ."
         else:
             return f"{self.full_name()}, {self.gender}, {self.age()} years old, was born {self.date_of_birth}, " \
                    f"dead {self.date_of_death}."
+
+    def full_name(self):
+        full_name = f"{self.first_name}  {self.middle_name}  {self.last_name}"
+        return full_name
+
+    def age(self):
+        y = self.date_of_birth
+        if self.date_of_death is None:
+            x = datetime.now()
+        else:
+            x = self.date_of_death
+
+        if x.month - y.month > 0:
+            result = x.year - y.year
+        else:
+            if x.day - y.day >= 0:
+                result = x.year - y.year
+            else:
+                result = (x.year - y.year) - 1
+        return result
 
 
 def main():
@@ -58,7 +66,7 @@ def main():
 
     # file view-editing loop
     while True:
-        print("*"*50)
+        print("*" * 50)
         sleep(1)
         print("You have available commands: ")
         sleep(1)
@@ -133,8 +141,8 @@ def save_file(file_name, persondata):
 
 def view_data(data):
     print(f"We have {len(data)} Person records;")
-    for p in data:
-        print(p)
+    for i in data:
+        print(i)
 
 
 def enter_Record():
@@ -143,14 +151,14 @@ def enter_Record():
     last_name = input("last_name: ")
     gender = input("gender: ")
     while True:
-        strinput = input("Enter date of birth: ")
+        strinput = input("Enter date of birth dd.mm.yyyy: ")
         try:
             date_of_birth = datetime.strptime(strinput, "%d.%m.%Y")
             break
         except ValueError:
             print("Format not valid try again dd.mm.yyyy ")
     while True:
-        strinput = input("Enter date of death: ")
+        strinput = input("Enter date of death dd.mm.yyyy: ")
         if strinput == "":
             date_of_death = None
             break
@@ -170,6 +178,8 @@ def search(data):
     for person in data:
         if search_data.lower() in person.full_name().lower():
             result.append(person)
+        else:
+            result = ["Request not found."]
     return result
 
 
